@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Grocery API Test</title>
+    <link rel="stylesheet" href="resources/style.css">
+</head>
+<body data-country="us">
+
+    <header class="hero">
+        <h1>The World's Grocery Store</h1>
+        <h4>Simulate buying groceries in different countries to see how prices change!</h4>
+        <p>Select your country:</p>
+    </header>
+
+    <nav class="navbar">
+        <button class="active" data-store="traderjoes" onclick="changeStore('traderjoes')">🇺🇸 USA</button>
+        <button data-store="londongroceries" onclick="changeStore('londongroceries')">🇬🇧 UK</button>
+        <button data-store="ffc" onclick="changeStore('ffc')">🇶🇦 Qatar</button>
+    </nav>
+
+   <main class="layout">
+        <label class="search-label" for="product">Item search:</label>
+
+        <div class="top-row">
+            <div class="search-area">
+                <input type="text" id="product" placeholder="Enter a grocery item">
+                <button onclick="searchProduct()">Search</button>
+            </div>
+            <div class="weather">
+                <span class="place" id="weather-place">Weather in Washington D.C:</span>
+                <span class="temp" id="weather-temp"></span>
+            </div>
+        </div>
+
+        <div class="bottom-row">
+            <div class="results-card">
+                <div id="results">
+                </div>
+            </div>
+            <aside class="cart-card">
+                <h2>Shopping cart:</h2>
+                <div id="cart"></div>
+                <p class="cart-total">Total: <span id="total">$0.00</span></p>
+            </aside>
+        </div>
+   </main>
+
+    <script src="resources/script.js"></script>
+    
+</body>
+</html>

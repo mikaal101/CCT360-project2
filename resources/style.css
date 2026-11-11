@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
+
+:root, body[data-country="us"] {
+    --bg: #FFFFFF;
+    --accent: #B31942;  
+    --deep: #0A3161;    
+    --card: #ECE6E6;
+    --card-text: #1a1a1a;
+    }
+    body[data-country="uk"] {
+        --bg: #FFFBF9;
+        --accent:#001A3A;
+        --deep: #a30e1d;
+        --card: #eef3fa;
+        --card-text: #1a1a1a;
+    }
+    body[data-country="qa"] {
+        --bg: #FFFBF9;
+        --accent: #8A1538;
+        --deep: #410C1C;
+        --card: #F1EBE3;
+        --card-text: #1a1a1a;
+}
+
+:root {
+    --navbarh: 4rem;
+    --corner-rad: 1.75rem;
+    --texcolor: #1a1a1a;
+}
+
+* {
+    font-family: 'Readex Pro', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--texcolor);
+}
+
+/* header */
+.hero {
+    background: linear-gradient(to bottom right, var(--deep), var(--accent), var(--card));
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem 6rem;
+}
+
+body[data-country="uk"] .hero {
+    background: linear-gradient(to bottom right, var(--card), var(--deep), var(--accent) 80%);
+}
+ 
+body[data-country="qa"] .hero {
+    background: linear-gradient(to bottom right, var(--card),var(--accent), var(--deep));
+}
+
+.hero h1 {
+    margin: 0 0 1.5rem;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.hero h4 {
+    margin: 0 0 4rem;
+    font-size: 1.2rem;
+}
+
+.hero p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* navbar of countries */
+
+.navbar {
+    display: flex;
+    position: sticky;
+    margin: -5rem auto 4rem;
+    background: rgba(255, 255, 255, 0.1); /* went for the liquid glass look */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 32px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+    padding: 0.4rem;
+    gap: 0.4rem;
+    height: var(--navbarh);
+    width: min(30rem, 90%);
+    top: 1.5rem;
+    z-index: 10;
+}
+
+.navbar button {
+    flex: 1;
+    border: 0.5px solid rgba(196, 196, 196, 0.5);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--texcolor);
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.navbar button:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.navbar button.active {
+    background: var(--deep);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* main */
+
+.layout {
+    max-width: 75rem;
+    margin: 2.5rem auto 3rem;
+    padding: 0 1.5rem;
+}
+
+.search-label {
+    display: block;
+    margin: 0 0 1rem 1rem;
+}
+
+.top-row, .bottom-row {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.top-row {
+    margin-bottom: 1.25rem;
+}
+
+.search-area {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    height: 3rem;
+    gap: 0.6rem;
+}
+
+.search-area input {
+    flex: 1;
+    min-width: 0;
+    padding: 0 1.1rem;
+    font-size: 1rem;
+    background: var(--bg);
+    border: 1px solid var(--deep);
+    border-radius: 100px;
+}
+
+input:focus-visible {
+    outline: 2px solid var(--deep);
+    outline-offset: 2px;
+}
+
+.search-area button {
+    background: var(--bg);
+    border: 1px solid var(--deep);
+    border-radius: 100px;
+    padding: 0 1.4rem;
+    font-size: 1rem;
+}
+
+.search-area button:hover {
+    background: var(--deep);
+    color: white;
+}
+
+/* weather pill */
+
+.weather {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 22rem;
+    height: 3rem;
+    gap: 0.75rem;
+    padding: 0 1.25rem;
+    background: var(--card);
+    color: var(--card-text);
+    border: 1px solid var(--deep);
+    border-radius: 999px;
+    font-size: 1rem;
+    flex: none;
+}
+
+.weather .place {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.weather .temp {
+    flex: none;
+    font-weight: bold;
+}
+
+/* cards */
+
+.results-card, .cart-card {
+    border-radius: var(--corner-rad);
+    padding: 1.5rem 2rem;
+}
+
+.results-card {
+    background: var(--card);
+    color: var(--card-text);
+    flex: 1;
+    min-width: 0;
+    min-height: 18rem;
+}
+
+.cart-card {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 8rem;
+    max-height: 80vh;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    flex: none;
+    width: 22rem;
+    color: var(--bg);
+    background: var(--deep);
+}
+
+.cart-card .item-row button {
+    background: var(--bg);
+    color: var(--accent);
+}
+
+.cart-card h2 {
+    margin: 0;
+    padding-bottom: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 1px solid var(--bg);
+}
+
+#cart {
+    flex: 1;
+    min-height: 8rem;
+    overflow-y: auto;
+    padding: 0.5rem 0;
+}
+
+.cart-total {
+    margin: 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--bg);
+    font-weight: bold;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--card-text);
+}
+
+.item-row:last-child {
+    border-bottom: 0;
+}
+ 
+.item-row .name {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+ 
+.item-row button {
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 50%;
+    background: var(--deep);
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.item-row button:hover {
+    opacity: 0.8;
+}
+ 
+.empty {
+    margin: 0;
+    opacity: 0.7;
+}
+
+.message {
+    margin: 0;
+    color: #6b6b6b;
+}
+
+/* responsive layout for mobile view */
+
+@media (max-width: 800px) {
+    .layout {
+        padding: 0 1rem;
+    }
+ 
+    .top-row, .bottom-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+ 
+    .search-area, .results-card {
+        flex: none;
+    }
+ 
+    .weather, .cart-card {
+        width: 100%;
+    }
+ 
+    .cart-card {
+        position: static;
+        max-height: none;
+    }
+ 
+    #cart {
+        max-height: 40vh;
+    }
+ 
+    .results-card, .cart-card {
+        padding: 1.25rem;
+    }
+}
