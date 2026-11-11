@@ -299,7 +299,7 @@ input:focus-visible {
 
 /* responsive layout for mobile view */
 
-@media (max-width: 800px) {
+@media (max-width: 500pt) {
     .layout {
         padding: 0 1rem;
     }
